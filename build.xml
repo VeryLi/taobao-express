@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="GB2312"?>
+<project default="main" basedir="." name="appframev31">
+  <property  name="version" value="2.2.4" />
+  <target name="main">
+    <delete dir="deploy/ql"/>
+    <copy todir="deploy/ql">
+	<fileset dir="target">
+	  <include name="taobao-express*.jar"/>
+	</fileset>
+    </copy>
+    <jar basedir="src/test" jarfile="deploy/ql/taobao-express-${version}-sources-test.jar" compress="false"/>
+    <zip destfile="QLExpress-${version}.zip"   basedir="deploy/" />
+  </target>
+</project>
